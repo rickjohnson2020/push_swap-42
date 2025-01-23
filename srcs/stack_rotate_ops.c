@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_push_ops.c                                   :+:      :+:    :+:   */
+/*   stack_rotate_ops.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: riyano <riyano@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 16:57:46 by riyano            #+#    #+#             */
-/*   Updated: 2025/01/23 17:15:48 by riyano           ###   ########.fr       */
+/*   Created: 2025/01/23 17:22:01 by riyano            #+#    #+#             */
+/*   Updated: 2025/01/23 17:34:44 by riyano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-void	pb(t_stack *a, t_stack *b)
+static void	rotate_stack(t_stack *stack)
 {
 	t_node	*temp;
 
-	if (a->size == 0)
+	if (stack->size < 2)
 		return ;
-	temp = stack_pop_top(a);
-	stack_push_top(b, temp);
+	temp = stack_pop_top(stack);
+	stack_push_bottom(stack, temp);
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	ra(t_stack *a)
 {
-	t_node	*temp;
+	rotate_stack(a);
+	printf("ra\n");
+}
 
-	if (b->size == 0)
-		return ;
-	temp = stack_pop_top(b);
-	stack_push_top(a, temp);
+void	rb(t_stack *b)
+{
+	rotate_stack(b);
+	printf("rb\n");
+}
+
+void	rr(t_stack *a, t_stack *b)
+{
+	rotate_stack(a);
+	rotate_stack(b);
+	printf("rr\n");
 }
