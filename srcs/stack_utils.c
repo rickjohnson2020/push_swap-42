@@ -1,6 +1,20 @@
-#include "../includes/push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: riyano <riyano@student.42london.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/27 17:54:05 by riyano            #+#    #+#             */
+/*   Updated: 2025/01/27 18:06:29 by riyano           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-t_node	create_node(int value)
+#include "../includes/push_swap.h"
+#include <stddef.h>
+#include <stdlib.h>
+
+t_node	*create_node(int value)
 {
 	t_node	*new_node;
 
@@ -25,7 +39,7 @@ void	free_stack(t_stack *stack)
 
 }
 
-void	stack_push_top(t_stack *stack, t_node new_node)
+void	stack_push_top(t_stack *stack, t_node *new_node)
 {
 	if (!new_node)
 		return ;
@@ -43,25 +57,7 @@ void	stack_push_top(t_stack *stack, t_node new_node)
 	stack->size++;
 }
 
-void	stack_push_top(t_stack *stack, t_node new_node)
-{
-	if (!new_node)
-		return ;
-	if (stack->size == 0)
-	{
-		stack->top = new_node;
-		stack->bottom = new_node;
-	}
-	else
-	{
-		new_node->next = stack->top;
-		stack->top->prev = new_node;
-		stack->top = new_node;
-	}
-	stack->size++;
-}
-
-void	stack_push_bottom(t_stack *stack, t_node new_node)
+void	stack_push_bottom(t_stack *stack, t_node *new_node)
 {
 	if (!new_node)
 		return ;
@@ -79,7 +75,7 @@ void	stack_push_bottom(t_stack *stack, t_node new_node)
 	stack->size++;
 }
 
-t_node	stack_pop_top(t_stack *stack)
+t_node	*stack_pop_top(t_stack *stack)
 {
 	t_node	*pop_node;
 
@@ -99,10 +95,10 @@ t_node	stack_pop_top(t_stack *stack)
 	pop_node->next = NULL;
 	pop_node->prev = NULL;
 	stack->size--;
-	retrun (pop_node);
+	return (pop_node);
 }
 
-t_node	stack_pop_bottom(t_stack *stack)
+t_node	*stack_pop_bottom(t_stack *stack)
 {
 	t_node	*pop_node;
 

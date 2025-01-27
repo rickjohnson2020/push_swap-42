@@ -6,9 +6,12 @@
 /*   By: riyano <riyano@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:42:21 by riyano            #+#    #+#             */
-/*   Updated: 2025/01/23 16:42:26 by riyano           ###   ########.fr       */
+/*   Updated: 2025/01/27 17:33:30 by riyano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/push_swap.h"
+#include <stdio.h>
 
 void	swap_top(t_stack *stack)
 {
@@ -26,18 +29,18 @@ void	swap_top(t_stack *stack)
 void	sa(t_stack *a)
 {
 	swap_top(a);
-	ft_printf("sa\n");
+	printf("sa\n");
 }
 
 void	sb(t_stack *b)
 {
 	swap_top(b);
-	ft_printf("sb\n");
+	printf("sb\n");
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
 	swap_top(a);
 	swap_tpo(b);
-	ft_printf("ss\n");
+	printf("ss\n");
 }

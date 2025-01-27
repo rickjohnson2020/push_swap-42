@@ -6,7 +6,7 @@
 /*   By: riyano <riyano@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 13:57:09 by riyano            #+#    #+#             */
-/*   Updated: 2025/01/24 20:39:34 by riyano           ###   ########.fr       */
+/*   Updated: 2025/01/27 16:23:41 by riyano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ int	count_tokens(int argc, char **argv)
 
 int	find_index(int *sorted, int n, int value)
 {
-	int left;
-	int right;
+	int	left;
+	int	right;
 	int	mid;
 
 	left = 0;
@@ -164,53 +164,60 @@ int	main(int argc, char **argv)
 	int		*sorted;
 	int		n;
 	int		i;
+	t_node	*node;
 
 	n = parse_args(&arr, argc, argv);
 
-	int j = 0;
-	while (arr[i])
+	sorted = malloc(sizeof(int) * n);
+	i = 0;
+	while (i < n)
 	{
-		printf("%d\n", arr[i]);
+		sorted[i] = arr[i];
 		i++;
 	}
-	free(arr);
-	printf("%d\n", n);
+	quick_sort(sorted, 0, n - 1);
+
+	// check if there is no duplicate
+	i = 0;
+	while (i < n - 1)
+	{
+		if (sorted[i] == sorted[i + 1])
+		{
+			write(2, "Error\n", 6);
+			free(arr);
+			free(sorted);
+			return (1);
+		}
+		i++;
+	}
+
+	// value -> index
+	i = 0;
+	while (i < n)
+	{
+		arr[i] = find_index(sorted, n, arr[i]);
+		i++;
+	}
+
+	//initialize satcks
+	init_stack(&a);
+	init_stack(&b);
+
+	i = 0;
+	while (i < n)
+	{
+		node = create_node(arr[i++]);
+		stack_push_bottom(&a, node);
+	}
+	radix_sort(&a, &b);
 
 
-	//sorted = malloc(sizeof(int) * n);
-	//i = 0;
-	//while (i < n)
-	//{
-	//	sorted[i] = arr[i];
-	//	i++;
-	//}
-//	quick_sort(sorted, n, sizeof(int), compare_int);
-//
-//	// check if there is no duplicate
-//	i = 0;
-//	while (i < n - 1)
-//	{
-//		if (sorted[i] == sorted[i + 1])
-//		{
-//			write(2, "Error\n", 6);
-//			free(arr);
-//			free(sorted);
-//			return (1);
-//		}
-//		i++;
-//	}
-//
-//	// value -> index
-//	i = 0;
-//	while (i < n)
-//	{
-//		arr[i] = find_index(sorted, n, arr[i]);
-//		i++;
-//	}
-//
-//	//initialize satcks
-//	init_stack(&a);
-//	init_stack(&b);
+	while (a.top)
+	{
+		printf("%d\n", a.top->value);
+		a.top = a.top->next;
+	}
+
 
 
 }

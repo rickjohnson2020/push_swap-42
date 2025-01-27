@@ -6,9 +6,12 @@
 /*   By: riyano <riyano@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:22:01 by riyano            #+#    #+#             */
-/*   Updated: 2025/01/23 17:34:44 by riyano           ###   ########.fr       */
+/*   Updated: 2025/01/27 17:26:49 by riyano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/push_swap.h"
+#include <stdio.h>
 
 static void	rotate_stack(t_stack *stack)
 {
