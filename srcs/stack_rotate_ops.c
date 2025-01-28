@@ -6,7 +6,7 @@
 /*   By: riyano <riyano@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:22:01 by riyano            #+#    #+#             */
-/*   Updated: 2025/01/27 17:26:49 by riyano           ###   ########.fr       */
+/*   Updated: 2025/01/28 17:40:06 by riyano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,15 @@ void	rr(t_stack *a, t_stack *b)
 	rotate_stack(b);
 	printf("rr\n");
 }
+//
+//void	rotate_n_times(t_stack *a, int n)
+//{
+//	int	i;
+//
+//	i = 0;
+//	while (i < n)
+//	{
+//		ra(a);
+//		i++;
+//	}
+//}

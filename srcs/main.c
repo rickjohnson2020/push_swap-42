@@ -6,7 +6,7 @@
 /*   By: riyano <riyano@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 13:57:09 by riyano            #+#    #+#             */
-/*   Updated: 2025/01/27 16:23:41 by riyano           ###   ########.fr       */
+/*   Updated: 2025/01/28 17:33:07 by riyano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,7 +209,19 @@ int	main(int argc, char **argv)
 		node = create_node(arr[i++]);
 		stack_push_bottom(&a, node);
 	}
-	radix_sort(&a, &b);
+	if (a.size == 2)
+	{
+		if (a.top->value > a.bottom->value)
+			sa(&a);
+	}
+	else if (a.size == 3)
+		sort_three(&a);
+	else if (a.size == 4)
+		sort_four(&a, &b);
+	else if (a.size == 5)
+		sort_five(&a, &b);
+	else
+		radix_sort(&a, &b);
 
 
 	while (a.top)
@@ -217,7 +229,9 @@ int	main(int argc, char **argv)
 		printf("%d\n", a.top->value);
 		a.top = a.top->next;
 	}
-
-
-
+	
+	free(arr);
+	free_stack(&a);
+	free_stack(&b);
+	return (0);
 }

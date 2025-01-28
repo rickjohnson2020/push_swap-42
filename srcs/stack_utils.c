@@ -36,7 +36,19 @@ void	init_stack(t_stack *stack)
 
 void	free_stack(t_stack *stack)
 {
+	t_node	*current;
+	t_node	*temp;
 
+	current = stack->top;
+	while (current)
+	{
+		temp = current;
+		current = current->next;
+		free(temp);
+	}
+	stack->top = NULL;
+	stack->bottom = NULL;
+	stack->size = 0;
 }
 
 void	stack_push_top(t_stack *stack, t_node *new_node)

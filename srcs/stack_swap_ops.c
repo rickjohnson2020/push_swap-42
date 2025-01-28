@@ -22,8 +22,8 @@ void	swap_top(t_stack *stack)
 		return ;
 	first = stack_pop_top(stack);
 	second = stack_pop_top(stack);
-	stack_push_top(first);
-	stack_push_top(second);
+	stack_push_top(stack, first);
+	stack_push_top(stack, second);
 }
 
 void	sa(t_stack *a)
@@ -41,6 +41,6 @@ void	sb(t_stack *b)
 void	ss(t_stack *a, t_stack *b)
 {
 	swap_top(a);
-	swap_tpo(b);
+	swap_top(b);
 	printf("ss\n");
 }
