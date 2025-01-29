@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quick_sort.c                                       :+:      :+:    :+:   */
+/*   quick_arr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: riyano <riyano@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 17:31:40 by riyano            #+#    #+#             */
-/*   Updated: 2025/01/27 17:31:59 by riyano           ###   ########.fr       */
+/*   Created: 2025/01/29 15:16:37 by riyano            #+#    #+#             */
+/*   Updated: 2025/01/29 15:16:40 by riyano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static void	swap(int *i , int *j)
+static void	swap(int *i, int *j)
 {
-	int temp = *i;
+	int	temp;
+
+	temp = *i;
 	*i = *j;
 	*j = temp;
 }
 
-static int	partition(int arr[], int l, int  r)
+static int	partition(int arr[], int l, int r)
 {
-	int pivot = arr[r];
-	int i = l - 1;
-	int j = l;
+	int	pivot;
+	int	i;
+	int	j;
+
+	pivot = arr[r];
+	i = l - 1;
+	j = l;
 	while (j < r)
 	{
 		if (arr[j] < pivot)

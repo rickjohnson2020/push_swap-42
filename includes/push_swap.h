@@ -47,10 +47,10 @@ void	ss(t_stack *a, t_stack *b);
 void	ra(t_stack *a);
 void	rb(t_stack *b);
 void	rr(t_stack *a, t_stack *b);
-//void	rotate_n_times(t_stack *a, int n);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
-//void	r_rotate_n_times(t_stack *a, int n);
+void	error_and_exit(void);
+void	push_smallest_to_b(t_stack *a, t_stack *b);
 
 #endif

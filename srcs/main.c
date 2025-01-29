@@ -32,24 +32,15 @@ long	ft_atol(const char *str)
 		i++;
 	}
 	if (str[i] == '\0')
-	{
-		write(2, "Error\n", 6);
-		exit(EXIT_FAILURE);
-	}
+		error_and_exit();
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
-		{
-			write(2, "Error\n", 6);
-			exit(EXIT_FAILURE);
-		}
+			error_and_exit();
 		result = result * 10 + (str[i] - '0');
 		if ((sign == 1 && result > INT_MAX) ||
 			(sign == -1 && result < INT_MIN))
-		{
-			write(2, "Error\n", 6);
-			exit(EXIT_FAILURE);
-		}
+			error_and_exit();
 		i++;
 	}
 	return (result * sign);
@@ -68,10 +59,7 @@ int	count_tokens(int argc, char **argv)
 	{
 		split = ft_split(argv[i], ' ');
 		if (!split)
-		{
-			write(2, "Error\n", 6);
-			exit(EXIT_FAILURE);
-		}
+			error_and_exit();
 		j = 0;
 		while (split[j])
 		{
@@ -124,20 +112,14 @@ int	parse_args(int **arr, int argc, char **argv)
 		return (0);
 	*arr = (int *)malloc(sizeof(int) * total);
 	if (!*arr)
-	{
-		write(2, "Error\n", 6);
-		exit(EXIT_FAILURE);
-	}
+		error_and_exit();
 	index = 0;
 	i = 1;
 	while (i < argc)
 	{
 		split = ft_split(argv[i], ' ');
 		if (!split)
-		{
-			write(2, "Error\n", 6);
-			exit(EXIT_FAILURE);
-		}
+			error_and_exit();
 		j = 0;
 		while (split[j])
 		{
@@ -223,13 +205,6 @@ int	main(int argc, char **argv)
 	else
 		radix_sort(&a, &b);
 
-
-	while (a.top)
-	{
-		printf("%d\n", a.top->value);
-		a.top = a.top->next;
-	}
-	
 	free(arr);
 	free_stack(&a);
 	free_stack(&b);

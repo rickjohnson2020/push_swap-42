@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_push_ops.c                                   :+:      :+:    :+:   */
+/*   error_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: riyano <riyano@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 16:57:46 by riyano            #+#    #+#             */
-/*   Updated: 2025/01/27 17:08:17 by riyano           ###   ########.fr       */
+/*   Created: 2025/01/29 15:52:47 by riyano            #+#    #+#             */
+/*   Updated: 2025/01/29 15:54:59 by riyano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 
-void	pb(t_stack *a, t_stack *b)
+void	error_and_exit(void)
 {
-	t_node	*temp;
-
-	if (a->size == 0)
-		return ;
-	temp = stack_pop_top(a);
-	stack_push_top(b, temp);
-	printf("pb\n");
-}
-
-void	pa(t_stack *a, t_stack *b)
-{
-	t_node	*temp;
-
-	if (b->size == 0)
-		return ;
-	temp = stack_pop_top(b);
-	stack_push_top(a, temp);
-	printf("pa\n");
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
 }

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_swap_ops.c                                   :+:      :+:    :+:   */
+/*   swap_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: riyano <riyano@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 16:42:21 by riyano            #+#    #+#             */
-/*   Updated: 2025/01/27 17:33:30 by riyano           ###   ########.fr       */
+/*   Created: 2025/01/29 15:42:31 by riyano            #+#    #+#             */
+/*   Updated: 2025/01/29 15:42:47 by riyano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-#include <stdio.h>
+#include "../../includes/push_swap.h"
+#include <unistd.h>
 
-void	swap_top(t_stack *stack)
+static void	swap_top(t_stack *stack)
 {
 	t_node	*first;
 	t_node	*second;
@@ -29,18 +29,18 @@ void	swap_top(t_stack *stack)
 void	sa(t_stack *a)
 {
 	swap_top(a);
-	printf("sa\n");
+	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack *b)
 {
 	swap_top(b);
-	printf("sb\n");
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
 	swap_top(a);
 	swap_top(b);
-	printf("ss\n");
+	write(1, "ss\n", 3);
 }

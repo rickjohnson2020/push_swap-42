@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_r_rotate_ops.c                               :+:      :+:    :+:   */
+/*   r_rotate_ops.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: riyano <riyano@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 17:39:03 by riyano            #+#    #+#             */
-/*   Updated: 2025/01/28 17:40:26 by riyano           ###   ########.fr       */
+/*   Created: 2025/01/29 15:45:38 by riyano            #+#    #+#             */
+/*   Updated: 2025/01/29 15:48:37 by riyano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-#include <stdio.h>
+#include "../../includes/push_swap.h"
+#include <unistd.h>
 
 static void	r_rotate_stack(t_stack *stack)
 {
@@ -26,30 +26,18 @@ static void	r_rotate_stack(t_stack *stack)
 void	rra(t_stack *a)
 {
 	r_rotate_stack(a);
-	printf("rra\n");
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *b)
 {
 	r_rotate_stack(b);
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack *a, t_stack *b)
 {
 	r_rotate_stack(a);
 	r_rotate_stack(b);
-	printf("rrr\n");
+	write(1, "rrr\n", 4);
 }
-//
-//void	r_rotate_n_times(t_stack *a, int n)
-//{
-//	int	i;
-//
-//	i = 0;
-//	while (i < n)
-//	{
-//		rra(a);
-//		i++;
-//	}
-//}
